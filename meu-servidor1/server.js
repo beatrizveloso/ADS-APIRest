@@ -5,10 +5,13 @@ const port = 3000;
 app.use(express.json());
 
 let produtos = [
-    { id: 1, nome: 'Mouse' },
-    { id: 2, nome: 'Fone' },
-    { id: 3, nome: 'Teclado' }
+    { id: 1, nome: 'Mouse', preco: 60 },
+    { id: 2, nome: 'Fone', preco: 80 },
+    { id: 3, nome: 'Teclado', preco: 180 }
 ];
+
+// Inicializa a variável id com o maior valor de ID já presente ou 0
+let id = produtos.length ? Math.max(...produtos.map(p => p.id)) : 0;
 
 app.get('/', (req, res) => {
     res.send('API de Produtos está rodando!');
@@ -22,7 +25,7 @@ app.get('/produtos', (req, res) => {
 // Adicionar um novo produto
 app.post('/produtos', (req, res) => {
     const { nome, preco } = req.body;
-    
+
     if (!nome || typeof nome !== 'string' || nome.trim() === '') {
         return res.status(400).json({ error: 'Nome é obrigatório e deve ser uma string válida' });
     }
@@ -32,7 +35,8 @@ app.post('/produtos', (req, res) => {
         return res.status(400).json({ error: 'Preço deve ser um número válido e não negativo' });
     }
 
-    const novoProduto = { id: id++, nome, preco: precoConvertido };
+    id++;  // Incrementa o ID para o novo produto
+    const novoProduto = { id, nome, preco: precoConvertido };
     produtos.push(novoProduto);
     res.status(201).json(novoProduto);
 });
