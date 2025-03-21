@@ -4,8 +4,11 @@ const port = 3000;
 
 app.use(express.json());
 
-let produtos = [];
-let id = 1;
+let produtos = [
+    { id: 1, nome: 'Mouse' },
+    { id: 2, nome: 'Fone' },
+    { id: 3, nome: 'Teclado' }
+];
 
 app.get('/', (req, res) => {
     res.send('API de Produtos está rodando!');
