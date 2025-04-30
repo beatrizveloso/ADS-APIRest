@@ -1,5 +1,5 @@
 # 🚀 API Produtos
-Este repositório contém minha primeira API desenvolvida durante a faculdade de Análise e Desenvolvimento de Sistemas. O projeto foi feito usando Node.js e Express, permitindo a criação, atualização, listagem e remoção de produtos, via Postman.
+Este repositório contém uma API desenvolvida durante a faculdade de Análise e Desenvolvimento de Sistemas. O projeto foi feito usando Node.js e Express, permitindo a criação, atualização, listagem e remoção de produtos, via Postman.
 
 # 🛠 Tecnologias utilizadas
 Node.js  <br/>
